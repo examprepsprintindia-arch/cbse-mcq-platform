@@ -2,7 +2,7 @@ begin;
 
 create extension if not exists pgtap;
 
-select plan(14);
+select plan(15);
 
 -- Fixed UUIDs keep this fixture self-contained. Supabase CLI runs database tests
 -- against an isolated local database, so these test users never reach production.
