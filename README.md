@@ -27,6 +27,7 @@ The browser client uses the Supabase anonymous/publishable key only. Service-rol
 - [Initial database proposal](supabase/migrations/0001_initial_schema.sql)
 - [Secure exam RPCs](supabase/migrations/0002_exam_rpcs.sql)
 - [Database integration tests](supabase/tests/exam_rpcs.test.sql)
+- [Safe database test guide](docs/DATABASE_TESTING.md)
 - [Project conventions](AGENTS.md)
 
 ## Intended directory layout
@@ -64,7 +65,7 @@ Once the app scaffold is added, development should require only a cloud environm
 3. Apply the reviewed SQL migration using Supabase CLI or the Supabase dashboard.
 4. Run `npm install`, `npm run dev`, and `npm test`.
 
-Database integration tests live in `supabase/tests`. Run them only against an isolated, disposable Supabase test database using the Supabase CLI; they create fixture users and curriculum data inside their transaction and roll it back. The platform itself does not require Docker or a custom backend.
+Database integration tests live in `supabase/tests`. Run them only against an isolated, disposable Supabase test database using the Supabase CLI; they create fixture users and curriculum data inside their transaction and roll it back. See [the database test guide](docs/DATABASE_TESTING.md) for exact safe commands. The platform itself does not require Docker or a custom backend.
 
 Do not place service-role keys, database passwords, or production tokens in `.env.local` files that may be committed.
 
