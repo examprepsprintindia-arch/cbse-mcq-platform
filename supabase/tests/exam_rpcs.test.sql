@@ -163,6 +163,16 @@ select is(
   'correct option is available only through the post-submission review RPC'
 );
 
+select set_config(
+  'test.attempt_a_id',
+  (
+    select id::text
+    from public.attempts
+    where student_id = '10000000-0000-0000-0000-000000000001'
+      and exam_id = '50000000-0000-0000-0000-000000000001'
+  ),
+  true
+);
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000002', true);
 
 select is(
@@ -172,17 +182,13 @@ select is(
 );
 
 select throws_ok(
-  $$
-    select *
-    from public.get_attempt_review(
-      (select id from public.attempts
-       where student_id = '10000000-0000-0000-0000-000000000001'
-         and exam_id = '50000000-0000-0000-0000-000000000001')
-    )
-  $$,
+  format(
+    'select * from public.get_attempt_review(%L::uuid)',
+    current_setting('test.attempt_a_id')
+  ),
   'P0002',
   'Attempt not found',
-  'a different student cannot retrieve another student''s review'
+  'a different student cannot retrieve another student''s review by a known identifier'
 );
 
 select set_config('request.jwt.claim.sub', '10000000-0000-0000-0000-000000000001', true);
