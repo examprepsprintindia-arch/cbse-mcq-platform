@@ -1,0 +1,11 @@
+# Environment files may contain database credentials.
+.env
+.env.*
+!.env.example
+
+# Local Supabase CLI state.
+.supabase/
+
+# Future frontend build artifacts.
+node_modules/
+dist/
