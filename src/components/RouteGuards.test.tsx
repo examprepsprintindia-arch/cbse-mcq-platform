@@ -1,3 +1,4 @@
+import '@testing-library/jest-dom/vitest'
 import { render, screen } from '@testing-library/react'
 import { Route, Routes } from 'react-router-dom'
 import { describe, expect, it } from 'vitest'
