@@ -4,7 +4,7 @@ A low-cost, production-minded examination platform for CBSE Class 12 students. I
 
 ## Status
 
-Architecture and data-model planning only. No application features have been implemented yet.
+Phase 3 authentication and application shell are implemented. The examination engine and administrator content-management workflow are intentionally deferred.
 
 ## Product scope
 
@@ -57,6 +57,18 @@ docs/
 public/
 ```
 
+## Authentication shell
+
+The application now provides:
+
+- Public landing, sign-in, and registration pages.
+- Supabase Auth session persistence and automatic refresh through the browser client.
+- Protected `/dashboard` and database-role-gated `/admin` routes.
+- Profile loading from `profiles`, which is created by the database trigger in the initial migration.
+- Role-aware navigation. This is a UI convenience only; PostgreSQL RLS and database roles remain the authorization boundary.
+
+The frontend deliberately uses only `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. It never contains a service-role key.
+
 ## Getting started
 
 Once the app scaffold is added, development should require only a cloud environment with Node.js and a Supabase project:
@@ -65,6 +77,8 @@ Once the app scaffold is added, development should require only a cloud environm
 2. Set `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`.
 3. Apply the reviewed SQL migration using Supabase CLI or the Supabase dashboard.
 4. Run `npm install`, `npm run dev`, and `npm test`.
+
+The Vitest suite covers authentication state, protected-route redirects, student/admin route access, and role-aware navigation.
 
 Database integration tests live in `supabase/tests`. Run them only against an isolated, disposable Supabase test database using the Supabase CLI; they create fixture users and curriculum data inside their transaction and roll it back. See [the database test guide](docs/DATABASE_TESTING.md) for exact safe commands. The platform itself does not require Docker or a custom backend.
 
