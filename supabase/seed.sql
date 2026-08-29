@@ -39,7 +39,7 @@ insert into public.questions (
     '90000000-0000-0000-0000-000000000011',
     '90000000-0000-0000-0000-000000000002',
     'A classroom clock measures a lesson as 45. What is the appropriate unit?',
-    '["Coulomb", "Volt", "Ohm", "Tesla"]'::jsonb,
+    '["seconds", "minutes", "kilograms", "metres"]'::jsonb,
     1,
     'A lesson duration is conventionally measured in minutes.',
     'easy',
