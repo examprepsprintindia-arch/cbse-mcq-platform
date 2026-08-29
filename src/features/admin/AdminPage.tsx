@@ -1,0 +1,2 @@
+export function AdminPage() { return <section className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"><p className="text-sm font-semibold text-blue-700">Administrator</p><h1 className="mt-2 text-3xl font-bold">Content management</h1><p className="mt-3 max-w-2xl text-slate-600">This protected area is reserved for the later subject, chapter, question, and exam management phase. Database RLS remains the authorization boundary.</p></section> }
+
