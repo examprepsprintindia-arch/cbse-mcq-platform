@@ -8,4 +8,5 @@
 
 # Future frontend build artifacts.
 node_modules/
+.npm-cache/
 dist/
