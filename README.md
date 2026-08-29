@@ -27,6 +27,7 @@ The browser client uses the Supabase anonymous/publishable key only. Service-rol
 - [Initial database proposal](supabase/migrations/0001_initial_schema.sql)
 - [Secure exam RPCs](supabase/migrations/0002_exam_rpcs.sql)
 - [Database integration tests](supabase/tests/exam_rpcs.test.sql)
+- [Fictional development seed data](supabase/seed.sql)
 - [Safe database test guide](docs/DATABASE_TESTING.md)
 - [Project conventions](AGENTS.md)
 
