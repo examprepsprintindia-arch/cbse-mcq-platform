@@ -10,3 +10,7 @@
 node_modules/
 .npm-cache/
 dist/
+
+# Local Supabase CLI state
+/supabase/.branches/
+/supabase/.temp/

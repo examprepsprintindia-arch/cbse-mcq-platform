@@ -290,7 +290,7 @@ $$;
 create or replace function public.get_attempt_review(p_attempt_id uuid)
 returns table (
   question_id uuid,
-  position integer,
+  question_position integer,
   prompt text,
   options jsonb,
   selected_option smallint,
