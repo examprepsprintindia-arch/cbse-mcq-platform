@@ -4,7 +4,7 @@ A low-cost, production-minded examination platform for CBSE Class 12 students. I
 
 ## Status
 
-Phase 3 authentication and application shell are implemented. The examination engine and administrator content-management workflow are intentionally deferred.
+Phase 4 student dashboard is implemented on top of the authentication and database foundation. The examination engine and administrator content-management workflow are intentionally deferred.
 
 ## Product scope
 
@@ -66,6 +66,7 @@ The application now provides:
 - Protected `/dashboard` and database-role-gated `/admin` routes.
 - Profile loading from `profiles`, which is created by the database trigger in the initial migration.
 - Role-aware navigation. This is a UI convenience only; PostgreSQL RLS and database roles remain the authorization boundary.
+- A responsive student dashboard with published subjects/chapters, published exams, recent attempts, and attempt-derived progress. It does not query protected questions or exam-question mappings.
 
 The frontend deliberately uses only `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY`. It never contains a service-role key.
 
